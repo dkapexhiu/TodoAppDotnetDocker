@@ -1,0 +1,30 @@
+﻿@model List<TodoApp.Models.Todo>
+
+<h2>Todo List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var todo in Model)
+        {
+            <tr>
+                <td>@todo.Id</td>
+                <td>@todo.Name</td>
+                <td>@todo.Description</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@todo.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@todo.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Create New Todo</a>
